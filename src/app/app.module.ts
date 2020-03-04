@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestPageComponent } from './test-page/test-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './services/auth.guard';
+import { CompletePageComponent } from './complete-page/complete-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthPageComponent,
-    TestPageComponent
+    TestPageComponent,
+    CompletePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -24,7 +29,12 @@ import { TestPageComponent } from './test-page/test-page.component';
       },
       {
         path: 'test',
-        component: TestPageComponent
+        component: TestPageComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'complete',
+        component: CompletePageComponent
       }
     ])
   ],

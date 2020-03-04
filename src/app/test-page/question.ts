@@ -12,3 +12,8 @@ export interface Answer {
     text: string;
     cost: number;
 }
+
+export interface UserAnswer {
+    name: string;
+    answers: Answer[];
+}

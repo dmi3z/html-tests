@@ -1,10 +1,10 @@
 <div class="page">
     <div class="questions">
         <div class="questions__item">
-            <h2 class="questions__item-title">{{ questions[step].text }}</h2>
-            <img src="assets/{{ questions[step].image }}" alt="">
+            <h2 class="questions__item-title">{{ currentQestion?.text }}</h2>
+            <img src="assets/{{ currentQestion?.image }}" alt="">
         </div>
 
-        <div class="questions__answer" *ngFor="let answer of questions[step].answers" [innerHtml]="answer?.text" (click)="goNext(answer)"></div>
+        <div class="questions__answer" *ngFor="let answer of currentQestion?.answers" [innerHtml]="answer?.text" (click)="goNext(answer)"></div>
     </div>
 </div>
