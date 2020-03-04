@@ -1,0 +1,54 @@
+.background {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    font-size: 180px;
+    color: rgba(0,0,0, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    user-select: none;
+}
+
+.auth {
+    width: 100%;
+    height: calc(100vh - 170px);
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    &__form {
+        padding: 2rem;
+        border: 1px solid lightblue;
+        border-radius: 4px;
+        position: relative;
+        z-index: 1;
+
+        .error {
+            border: 1px solid red;
+        }
+
+        &-field {
+            height: 2rem;
+            padding-left: 10px;
+            font-size: 1.3rem;
+            width: 15rem;
+            margin-right: 1rem;
+            border: 1px solid lightgray;
+            background-color: white;
+            outline: none;
+        }
+
+        &-button {
+            width: 5rem;
+            height: 2.1rem;
+            background-color: lightblue;
+            border: 1px solid lightblue;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+}

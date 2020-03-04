@@ -1,0 +1,9 @@
+<div class="page auth">
+    <span class="background">HTML <span [innerText]="'</>'"></span></span>
+
+    <form novalidate [formGroup]="userForm" class="auth__form">
+        <input class="auth__form-field" [class.error]="user.errors" type="text" formControlName="user" placeholder="Ваше имя">
+        <input class="auth__form-field" [class.error]="password.errors" type="password" formControlName="password" placeholder="Пароль">
+        <input class="auth__form-button" type="submit" value="Войти" (click)="login()">
+    </form>
+</div>

@@ -1,0 +1,30 @@
+.questions {
+    &__item {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-title {
+            max-width: 60%;
+            white-space: pre-wrap;
+        }
+
+    }
+    &__answer {
+        padding: 3rem;
+        border-bottom: 1px solid lightgray;
+        transition: .3s;
+        user-select: none;
+        cursor: pointer;
+
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background-color: rgba(255, 160, 122, 0.486);
+        }
+    }
+}
