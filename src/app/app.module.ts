@@ -9,13 +9,16 @@ import { TestPageComponent } from './test-page/test-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './services/auth.guard';
 import { CompletePageComponent } from './complete-page/complete-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { AdminGuard } from './services/admin.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthPageComponent,
     TestPageComponent,
-    CompletePageComponent
+    CompletePageComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,11 @@ import { CompletePageComponent } from './complete-page/complete-page.component';
       {
         path: 'complete',
         component: CompletePageComponent
+      },
+      {
+        path: 'admin',
+        component: AdminPageComponent,
+        canActivate: [AdminGuard]
       }
     ])
   ],

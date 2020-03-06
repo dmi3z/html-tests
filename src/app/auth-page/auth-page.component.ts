@@ -23,7 +23,7 @@ export class AuthPageComponent implements OnInit {
     }
 
     private createFormFields(): void {
-        this.user = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(60), Validators.pattern(/[a-zа-я ]+/gmi)]);
+        this.user = new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(60), Validators.pattern(/[a-zа-я ]+/gmi)]);
         this.password = new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]);
     }
 
@@ -38,8 +38,12 @@ export class AuthPageComponent implements OnInit {
         if (this.userForm.valid) {
             if (this.password.value === 'po47tests') {
                 this.dataService.user = this.user.value;
-                console.log(this.user.value);
                 this.router.navigate(['test']);
+            }
+            if (this.password.value === 'adminpass' && this.user.value === 'admin') {
+                this.dataService.user = this.user.value;
+                this.dataService.isAdminPassword = true;
+                this.router.navigate(['admin']);
             }
         }
     }

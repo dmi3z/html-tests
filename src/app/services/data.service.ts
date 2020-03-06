@@ -10,6 +10,7 @@ export class DataService {
     private _user: string;
 
     public total: number;
+    public isAdminPassword: boolean;
 
     private readonly BASE_URL = 'https://html-tests-node.herokuapp.com/';
 
@@ -17,6 +18,10 @@ export class DataService {
 
     public get isLogin(): boolean {
         return !!this._user;
+    }
+
+    public get isAdminLogin(): boolean {
+        return this.isAdminPassword && this.user === 'admin';
     }
 
     public get user(): string {
@@ -33,5 +38,9 @@ export class DataService {
 
     saveResult(result: UserAnswer): void {
         this.http.post(this.BASE_URL.concat('result'), result).toPromise();
+    }
+
+    getResults(): Promise<UserAnswer[]> {
+        return this.http.get<UserAnswer[]>(this.BASE_URL.concat('results')).toPromise();
     }
 }

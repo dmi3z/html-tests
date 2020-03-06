@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Question, Answer, UserAnswer } from './question';
-import { Observable } from 'rxjs';
 import { DataService } from '../services/data.service';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,6 +31,7 @@ export class TestPageComponent implements OnInit {
             this.questions = res;
             this.questionsLength = res.length;
             this.currentQestion = this.questions[this.step];
+
         });
         this.userAnswers.name = this.dataService.user;
     }
