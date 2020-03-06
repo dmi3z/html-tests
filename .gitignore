@@ -2,7 +2,7 @@
 
 # compiled output
 /tmp
-/src
+/src/app
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
