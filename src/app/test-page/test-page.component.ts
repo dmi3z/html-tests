@@ -13,8 +13,6 @@ export class TestPageComponent implements OnInit {
 
     public step = 0;
 
-    private total = 0;
-
     public questions: Question[] = [];
     public currentQestion: Question;
     private questionsLength: number;
@@ -37,14 +35,13 @@ export class TestPageComponent implements OnInit {
     }
 
     public goNext(answer: Answer): void {
-        this.total += answer.cost;
         if (this.step < this.questionsLength - 1) {
             this.step++;
             this.userAnswers.answers.push(answer);
             this.currentQestion = this.questions[this.step];
         } else {
             this.dataService.saveResult(this.userAnswers);
-            this.dataService.total = this.total;
+            this.dataService.total = this.userAnswers.answers.reduce((accum, item) => accum += item.cost, 0);;
             this.router.navigate(['complete']);
         }
     }
