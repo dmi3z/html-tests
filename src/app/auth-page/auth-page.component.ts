@@ -36,7 +36,7 @@ export class AuthPageComponent implements OnInit {
 
     public login(): void {
         if (this.userForm.valid) {
-            if (this.password.value === 'po47tests') {
+            if (this.password.value === 'po51tests') {
                 this.dataService.user = this.user.value;
                 this.router.navigate(['test']);
             }
